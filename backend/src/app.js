@@ -10,7 +10,7 @@ import contactRoutes from "./routes/contactRoutes.js";
 const app = express();
 
 app.use(cors({
-  origin: "*",
+  origin: "https://task-contact-manager.onrender.com",
   credentials: true
 }));
 app.use(express.json());
