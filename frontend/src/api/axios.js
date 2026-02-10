@@ -1,5 +1,6 @@
 import axios from "axios";
 
+console.log("Current API URL:", "https://task-contact-manager.onrender.com/api");
 
 const API = axios.create({
   baseURL:"https://task-contact-manager.onrender.com/api"
