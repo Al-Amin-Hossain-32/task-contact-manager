@@ -1,9 +1,15 @@
-const express = require("express");
-const { createContact, getContacts, getContact, updateContact, deleteContact } = require("../controllers/contactController");
-const { protect } = require("../middlewares/authMiddleware");
-const multer = require("multer");
-const cloudinary = require("cloudinary").v2;
-const { CloudinaryStorage } = require("multer-storage-cloudinary");
+import express from "express";
+import multer from "multer";
+import { v2 as cloudinary } from "cloudinary";
+import { CloudinaryStorage } from "multer-storage-cloudinary";
+import { 
+  createContact, 
+  getContacts, 
+  getContact, 
+  updateContact, 
+  deleteContact 
+} from "../controllers/contactController.js";
+import { protect } from "../middlewares/authMiddleware.js";
 
 // Cloudinary config
 cloudinary.config({
@@ -34,4 +40,4 @@ router.get("/:id", getContact);
 router.put("/:id", parser.single("photo"), updateContact);
 router.delete("/:id", deleteContact);
 
-module.exports = router;
+export default router;

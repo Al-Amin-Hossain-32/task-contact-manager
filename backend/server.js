@@ -1,16 +1,20 @@
-require("dotenv").config();
-const app = require("./src/app");
+// .env config
+import 'dotenv/config';
 
-const dns = require("dns");
-dns.setDefaultResultOrder("ipv4first");
+// App import
+import app from './src/app.js';
 
-const connectDB = require("./src/config/db");
+// DNS
+import dns from 'dns';
+dns.setDefaultResultOrder('ipv4first');
 
-
+// DB connect
+import connectDB from './src/config/db.js';
 connectDB(); // Connect to MongoDB
 
+// Port
 const PORT = process.env.PORT || 5000;
 
-app.listen(PORT, ()=>{
-    console.log(`Server is running on port ${PORT}`);
-})
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
+});

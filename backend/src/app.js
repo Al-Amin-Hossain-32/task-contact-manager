@@ -1,28 +1,30 @@
-const express = require("express");
-const cors = require("cors");
+import express from "express";
+import cors from "cors";
 
-const app = express(); 
+// Routes
+import authRoutes from "./routes/authRoutes.js";
+import testRoutes from "./routes/testRoutes.js";
+import taskRoutes from "./routes/taskRoutes.js";
+import contactRoutes from "./routes/contactRoutes.js";
 
+const app = express();
+
+// Middleware
 app.use(cors({
   origin: "*", // পরে frontend domain দিবা
   credentials: true
 }));
 app.use(express.json());
 
-const authRoutes = require("./routes/authRoutes");
+// Routes
 app.use("/api/auth", authRoutes);
+app.use("/api/test", testRoutes);
+app.use("/api/tasks", taskRoutes);
+app.use("/api/contacts", contactRoutes);
 
-const testRoutes = require("./routes/testRoutes")
-app.use("/api/test",testRoutes)
-
-const taskRoutes = require("./routes/taskRoutes")
-app.use("/api/tasks",taskRoutes)
-
-const contactRoutes = require("./routes/contactRoutes");
-app.use("/api/contacts",contactRoutes)
-
+// Test route
 app.get("/", (req, res) => {
-  res.send("Task Manager API Running...")
+  res.send("Task Manager API Running...");
 });
 
-module.exports = app;
+export default app;
