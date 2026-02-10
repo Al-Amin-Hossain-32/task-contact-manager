@@ -10,7 +10,7 @@ import contactRoutes from "./routes/contactRoutes.js";
 const app = express();
 
 app.use(cors({
-  origin: "https://task-contact-manage.vercel.app",
+  origin: "https://task-contact-manage-33rxco1gl.vercel.app/",
   credentials: true
 }));
 app.use(express.json());
