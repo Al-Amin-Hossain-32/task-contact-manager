@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
+import API from "../api/axios";
 import { User, Mail, Lock, UserPlus, ArrowRight } from "lucide-react"; // আইকনের জন্য
 
 const SignUp = () => {
@@ -34,7 +34,7 @@ const SignUp = () => {
       setLoading(true);
       setError(null);
 
-      await axios.post("http://localhost:5000/api/auth/register", {
+      await API.post("/auth/register", {
         name,
         email,
         password,
