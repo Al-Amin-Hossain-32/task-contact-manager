@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { loginSuccess } from "../redux/slices/authSlice";
 import { useNavigate, useLocation } from "react-router-dom";
-import axios from "axios";
+import API from "../api/axios";
 import { Mail, Lock, LogIn, ArrowRight, ShieldCheck } from "lucide-react"; // আইকনের জন্য
 
 const Login = () => {
@@ -28,7 +28,7 @@ const Login = () => {
       setLocalLoading(true);
       setLocalError(null);
       
-      const res = await axios.post("http://localhost:5000/api/auth/login", {
+      const res = await API.post("/auth/login", {
         email,
         password,
       });

@@ -2,7 +2,7 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
 // API base URL
-const API = "http://localhost:5000/api/tasks";
+const API = "https://task-contact-manager.onrender.com/api/tasks";
 
 // fetch tasks
 export const fetchTasks = createAsyncThunk("tasks/fetch", async (_, thunkAPI) => {

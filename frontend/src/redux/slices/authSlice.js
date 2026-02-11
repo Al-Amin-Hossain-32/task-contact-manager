@@ -32,7 +32,7 @@ const authSlice = createSlice({
     },
 });
 
-const API = "http://localhost:5000/api/auth"; // বা তোমার backend url
+const API = "https://task-contact-manager.onrender.com/api/auth"; 
 
 // ✅ login thunk
 export const loginUser = createAsyncThunk(
